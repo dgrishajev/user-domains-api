@@ -1,0 +1,23 @@
+version: "2.1"
+
+services:
+  postgres:
+    image: postgres
+    restart: on-failure
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_URL: postgres:5432
+      POSTGRES_DB: user_domains
+    healthcheck:
+      timeout: 5s
+      interval: 5s
+      retries: 5
+      test: ["CMD-SHELL", "pg_isready --dbname=postgres --host=localhost --username=postgres"]
+
+volumes:
+  postgres:

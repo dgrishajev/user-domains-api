@@ -1,0 +1,74 @@
+{
+  "plugins": ["@typescript-eslint", "import"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "airbnb-base",
+    "plugin:node/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"],
+      }
+    }
+  },
+  "rules": {
+    "node/no-missing-import": ["error", {
+      "allowModules": ["express", "http-errors", "body-parser"],
+      "resolvePaths": ["./src"],
+      "tryExtensions": [".ts"]
+    }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "semi": false,
+        "trailingComma": "none",
+        "tabWidth": 2,
+        "arrowParens": "avoid"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "node/no-unsupported-features/es-syntax": "off",
+    "consistent-return": "off",
+    "arrow-parens": [2, "as-needed"],
+    "newline-per-chained-call": ["error", {
+      "ignoreChainWithDepth": 2
+    }],
+    "import/order": ["error", {
+      "newlines-between": "always",
+      "groups": ["builtin", "external", "internal", "parent", ["index", "sibling"]]
+    }],
+    "no-multiple-empty-lines": ["error", {
+      "max": 1,
+      "maxBOF": 0,
+      "maxEOF": 0
+    }],
+    "space-before-function-paren": ["error", {
+      "named": "never",
+      "anonymous": "never",
+      "asyncArrow": "always"
+    }],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": ["block-like", "const", "let"], "next": "return" },
+      { "blankLine": "always", "prev": "block-like", "next": "block-like" },
+      { "blankLine": "always", "prev": "break", "next": ["case", "default"] }
+    ]
+  },
+}

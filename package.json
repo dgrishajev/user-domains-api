@@ -1,0 +1,59 @@
+{
+  "name": "user-domains-api",
+  "version": "0.0.1",
+  "description": "JSON API server-side app",
+  "keywords": [
+    "api",
+    "javascript",
+    "node",
+    "express",
+    "typeorm",
+    "json"
+  ],
+  "homepage": "https://github.com/dgrishajev/user-domains-api#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgrishajev/user-domains-api.git"
+  },
+  "license": "ISC",
+  "author": {
+    "name": "Dominic Grishajev",
+    "email": "dgrishajev@gmail.com",
+    "url": "https://github.com/dgrishajev"
+  },
+  "type": "commonjs",
+  "main": "src/index.ts",
+  "devDependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.10",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2",
+    "ts-node": "10.7.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "4.5.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "http-errors": "^2.0.0",
+    "pg": "^8.4.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "0.3.6"
+  },
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "dev": "ts-node-dev --respawn ./src/index.ts",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "format": "prettier --check src",
+    "format:write": "prettier --write src"
+  }
+}
